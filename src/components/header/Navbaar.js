@@ -1,5 +1,9 @@
 import React from "react";
 import "./navbaar.css";
+import SearchIcon from "@mui/icons-material/Search";
+import Badge from "@mui/material-next/Badge";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Avatar from '@mui/material/Avatar';
 
 function Navbaar() {
   return (
@@ -9,14 +13,25 @@ function Navbaar() {
           <div className="navlogo">
             <img src="./amazon_PNG25.png" alt="" />
           </div>
-          <div className="nav_Searchbaar">
+          <div className="nav_searchbaar">
             <input type="text" />
             <div className="search_icon">
-              
+              <SearchIcon />
             </div>
           </div>
         </div>
-        <div className="right"></div>
+        <div className="right">
+          <div className="nav_btn">
+            <a href="">signin</a>
+          </div>
+          <div className="cart_btn">
+            <Badge badgeContent={4} color="secondary">
+              <ShoppingCartIcon id="icon"/>
+            </Badge>
+            <p>Cart</p>
+          </div>
+          <Avatar className="avatar"/>
+        </div>
       </nav>
     </header>
   );
