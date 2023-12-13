@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
 import "../home/slide.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
- //import { products } from './productdata';
 import { Divider } from '@mui/material';
 import { NavLink } from "react-router-dom";
 
@@ -22,8 +21,6 @@ const responsive = {
 };
 
 const Slide = ({ title, products }) => {
-
-
     return (
         <div className="products_section">
             <div className="products_deal">
@@ -48,9 +45,9 @@ const Slide = ({ title, products }) => {
                 containerClass="carousel-container"
             >
                 {
-                    products.map((e) => {
+                    (products ?? []).map((e) => {
                         return (
-                            <NavLink to={`/getproductsone/${e.id}`}>
+                            <NavLink to={`/getproductsone/${e.id}`} key={e.id}>
                                 <div className="products_items">
                                     <div className="product_img">
                                         <img src={e.url} alt="product" />
@@ -63,11 +60,9 @@ const Slide = ({ title, products }) => {
                         )
                     })
                 }
-
             </Carousel>
         </div>
     )
 }
 
-export default Slide
-
+export default Slide;

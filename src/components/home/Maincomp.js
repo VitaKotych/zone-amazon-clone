@@ -3,18 +3,20 @@ import Banner from './Banner'
 import "../home/home.css";
 import Slide from './Slide';
 import { Divider } from '@mui/material';
-// import { getProducts } from '../redux/actions/action';
-// import { useSelector, useDispatch } from "react-redux";
+import { getProducts } from '../redux/actions/action';
+import { useSelector, useDispatch } from "react-redux";
+
+
 const Maincomp = () => {
 
-    // const { products } = useSelector(state => state.getproductsdata);
-    // // console.log(products);
+    const { products } = useSelector(state => state.getproductsdata);
+    // console.log(products);
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch(getProducts());
-    // }, [dispatch])
+    useEffect(() => {
+        dispatch(getProducts());
+    }, [dispatch])
 
     return (
         <>
@@ -24,7 +26,7 @@ const Maincomp = () => {
                 </div>
                 <div className="slide_part">
                     <div className="left_slide">
-                        {/* <Slide title="Deal Of The Day" products={products} /> */}
+                        <Slide title="Deal Of The Day" products={products} />
                     </div>
                     <div className="right_slide">
                         <h4>Festive latest launches</h4>
@@ -33,14 +35,14 @@ const Maincomp = () => {
                     </div>
                 </div>
 
-                {/* <Slide title="Today's Deal" products={products} /> */}
+                <Slide title="Today's Deal" products={products} />
 
                 <div className="center_img">
                     <img src="https://m.media-amazon.com/images/G/31/AMS/IN/970X250-_desktop_banner.jpg" alt="" />
                 </div>
 
-                {/* <Slide title="Best Seller" products={products} />
-                <Slide title="Upto 80% off" products={products} /> */}
+                <Slide title="Best Seller" products={products} />
+                <Slide title="Upto 80% off" products={products} />
             </div>
 
             <Divider />

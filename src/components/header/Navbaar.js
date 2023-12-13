@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material-next/Badge";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Avatar from '@mui/material/Avatar';
+import { NavLink } from "react-router-dom";
 
 function Navbaar() {
   return (
@@ -22,7 +23,7 @@ function Navbaar() {
         </div>
         <div className="right">
           <div className="nav_btn">
-            <a href="">signin</a>
+            <NavLink to="./login">signin</NavLink>
           </div>
           <div className="cart_btn">
             <Badge badgeContent={4} color="secondary">
