@@ -5,8 +5,6 @@ import Slide from './Slide';
 import { Divider } from '@mui/material';
 // import { getProducts } from '../redux/actions/action';
 // import { useSelector, useDispatch } from "react-redux";
-
-
 const Maincomp = () => {
 
     // const { products } = useSelector(state => state.getproductsdata);
