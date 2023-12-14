@@ -18,3 +18,7 @@ import rootReducer from "./components/redux/reducers/main";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 export default store;
+
+
+
+

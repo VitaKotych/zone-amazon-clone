@@ -1,4 +1,4 @@
-import { getProductsReducers } from "./Productreducers";
+import { getProductsReducers } from "../reducers/Productreducers"
 
 import {combineReducers} from "redux";
 

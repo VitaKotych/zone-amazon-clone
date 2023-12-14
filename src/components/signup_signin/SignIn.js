@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const Sign_in = () => {
+const SignIn = () => {
 
     const { account, setAccount } = useContext(Logincontext);
 
@@ -103,4 +103,4 @@ const Sign_in = () => {
     )
 }
 
-export default Sign_in
+export default SignIn
