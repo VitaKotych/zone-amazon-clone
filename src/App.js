@@ -28,7 +28,7 @@ function App() {
           <Newnav />
           <Routes>
             <Route path="/" element={<Maincomp />} />
-            <Route path="/signup" element={<SignUp />} />
+            <Route path="/register" element={<SignUp />} />
             <Route path="/login" element={<SignIn />} />
             <Route path="/getproductsone/:id" element={<Cart />} />
             <Route path="/buynow" element={<Buynow />} />
