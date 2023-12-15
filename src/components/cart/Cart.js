@@ -1,78 +1,72 @@
-import React, { useContext, useEffect, useState } from 'react'
-import "./cart.css";
-import { products } from '../home/productdata';
+import React, { useContext, useEffect, useState } from 'react';
+import './cart.css';
 import { Divider } from '@mui/material';
-import { useNavigate, useParams } from 'react-router';
 import CircularProgress from '@mui/material/CircularProgress';
-import { Logincontext } from "../context/Contextprovider";
+import { useNavigate, useParams } from 'react-router';
+import { Logincontext } from '../context/Contextprovider';
 
 const Cart = () => {
+  const { account, setAccount } = useContext(Logincontext);
+  const { id } = useParams('');
+  const navigate = useNavigate(); // Use useNavigate directly
 
-    const { account, setAccount } = useContext(Logincontext);
-    // console.log(account);
+  const [inddata, setIndedata] = useState('');
 
+  const getinddata = async () => {
+    try {
+      const res = await fetch(`/getproductsone/${id}`, {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      });
 
+      const data = await res.json();
 
-    const { id } = useParams("");
-    // console.log(id);
-
-    const history = useNavigate();
-
-    const [inddata, setIndedata] = useState("");
-
-    // console.log([inddata]);
-
-    const getinddata = async () => {
-        const res = await fetch(`/getproductsone/${id}`, {
-            method: "GET",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            credentials: "include"
-        });
-
-        const data = await res.json();
-        // console.log(data);
-
-        if (res.status !== 201) {
-            alert("no data available")
-        } else {
-            // console.log("ind mila hain");
-            setIndedata(data);
-        }
-    };
-
-    useEffect(() => {
-        setTimeout(getinddata, 1000)
-    }, [id]);
-
-    const addtocart = async (id) => {
-        console.log(id);
-        const check = await fetch(`/addcart/${id}`, {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                inddata
-            }),
-            credentials: "include"
-        });
-        // console.log(check);
-        const data1 = await check.json();
-        // console.log(data1 +  'ok');
-
-        if (check.status !== 201) {
-            alert("no data available")
-        } else {
-            // console.log("cart add ho gya hain");
-            setAccount(data1)
-            history.push("/buynow");
-        }
+      if (res.status !== 201) {
+        alert('no data available');
+      } else {
+        setIndedata(data);
+      }
+    } catch (error) {
+      console.error(error);
     }
+  };
 
+  useEffect(() => {
+    setTimeout(getinddata, 1000);
+  }, [id]);
+
+  const addtocart = async (id) => {
+    try{
+    console.log(id);
+
+      const check = await fetch(`/addcart/${id}`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          inddata,
+        }),
+        credentials: 'include',
+      });
+
+      const data1 = await check.json();
+
+      if (check.status !== 201) {
+        alert('no data available');
+      } else {
+        setAccount(data1);
+       // navigate('/buynow'); // Use navigate instead of history.push
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
     return (
 
