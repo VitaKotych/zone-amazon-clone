@@ -29,7 +29,7 @@ const usestyle = makeStyles({
 
 const Navbaar = () => {
   const classes = usestyle();
-  const history = useNavigate("");
+  const history = useNavigate();
   const [text, setText] = useState();
   const { products } = useSelector((state) => state.getproductsdata);
   const dispatch = useDispatch();
@@ -91,7 +91,8 @@ const Navbaar = () => {
       toast.success("user Logout 😃!", {
         position: "top-center",
       });
-      history.push("/");
+      // Use navigate function from useNavigate hook
+      history("/");
     }
   };
 

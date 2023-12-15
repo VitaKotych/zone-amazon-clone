@@ -40,9 +40,13 @@ const Cart = () => {
   }, [id]);
 
   const addtocart = async (id) => {
-    try{
-    console.log(id);
-
+    try {
+      if (!account) {
+        // If user is not logged in, redirect to the login page
+        navigate('/login');
+        return;
+      }
+  
       const check = await fetch(`/addcart/${id}`, {
         method: 'POST',
         headers: {
@@ -54,19 +58,20 @@ const Cart = () => {
         }),
         credentials: 'include',
       });
-
+  
       const data1 = await check.json();
-
+  
       if (check.status !== 201) {
         alert('no data available');
       } else {
         setAccount(data1);
-       // navigate('/buynow'); // Use navigate instead of history.push
+        // navigate('/buynow'); // Use navigate instead of history.push
       }
     } catch (error) {
       console.error(error);
     }
   };
+  
 
     return (
 
