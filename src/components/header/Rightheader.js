@@ -24,7 +24,7 @@ const usestyle = makeStyles({
 
 const Rightheader = ({ userlog ,logclose}) => {
 
-    const imgd = "/canad.jpg"
+    const imgd = "/india.png"
 
     const { account, setAccount } = useContext(Logincontext);
 

@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { Logincontext } from '../context/Contextprovider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import  "./signup.css"
 
-
-const SignIn = () => {
+const Sign_in = () => {
 
     const { account, setAccount } = useContext(Logincontext);
 
@@ -103,4 +103,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn
+export default Sign_in

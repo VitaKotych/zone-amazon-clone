@@ -91,9 +91,9 @@ const Cart = () => {
                         <h3>{inddata.title.shortTitle}</h3>
                         <h4>{inddata.title.longTitle}</h4>
                         <Divider />
-                        <p className="mrp">M.R.P. : <del>₹{inddata.price.mrp}</del></p>
-                        <p>Deal of the Day : <span style={{ color: "#B12704" }}>₹{inddata.price.cost}.00</span></p>
-                        <p>You save : <span style={{ color: "#B12704" }}> ₹{inddata.price.mrp - inddata.price.cost} ({inddata.price.discount}) </span></p>
+                        <p className="mrp"> <del>{inddata.price.mrp}</del></p>
+                        <p>Deal of the Day : <span style={{ color: "#B12704" }}>{inddata.price.cost}.00</span></p>
+                        <p>You save : <span style={{ color: "#B12704" }}> {inddata.price.mrp - inddata.price.cost} ({inddata.price.discount}) </span></p>
 
                         <div className="discount_box">
                             <h5 >Discount : <span style={{ color: "#111" }}>{inddata.discount}</span> </h5>

@@ -3,7 +3,7 @@ import Navbaar from './components/header/Navbaar.js';
 import Newnav from './components/newnavbaar/Newnav.js';
 import Maincomp from "./components/home/Maincomp.js";
 import Footer from './components/footer/Footer.js';
-import SignIn from './components/signup_signin/SignIn.js';
+import SignIn from './components/signup_signin/Sign_in.js';
 import SignUp from './components/signup_signin/SignUp.js';
 import Cart from "./components/cart/Cart.js";
 import Buynow from './components/buynow/Buynow.js';
@@ -28,19 +28,21 @@ function App() {
           <Newnav />
           <Routes>
             <Route path="/" element={<Maincomp />} />
-            <Route path="/register" element={<SignUp />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<SignIn />} />
             <Route path="/getproductsone/:id" element={<Cart />} />
             <Route path="/buynow" element={<Buynow />} />
           </Routes>
           <Footer />
         </>
-      ) : (
+      ) 
+      : (
         <div className="circle">
           <CircularProgress />
           <h2>Loading....</h2>
         </div>
-      )}
+      )
+      }
     </>
   );
 }

@@ -81,7 +81,7 @@ export const products = [
             discount: '40%'
         },
         description: '',
-        discount: 'From ₹499', 
+        discount: 'From 499', 
         tagline: 'Kubra, Nova & more' 
     }
 ]
