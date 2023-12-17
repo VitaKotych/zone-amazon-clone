@@ -24,7 +24,7 @@ const usestyle = makeStyles({
 
 const Rightheader = ({ userlog ,logclose}) => {
 
-    const imgd = "/india.png"
+    const imgd = "/canada.jpg"
 
     const { account, setAccount } = useContext(Logincontext);
 
@@ -53,7 +53,7 @@ const Rightheader = ({ userlog ,logclose}) => {
                 <Divider style={{ width: "100%", marginLeft: -20 }} />
                 <div className="flag">
                     <NavLink to="" style={{ marginTop: 14 }}>Settings</NavLink>
-                    <img src={imgd} alt="india flag" style={{ width: 35, marginLeft: 10 }} />
+                    <img src={imgd} alt=" flag" style={{ width: 35, marginLeft: 10 }} />
                 </div>
 
                 {

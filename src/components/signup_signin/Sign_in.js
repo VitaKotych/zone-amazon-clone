@@ -55,11 +55,20 @@ const Sign_in = () => {
                 });
             } else {
                 setAccount(data);
-                setData({ ...logdata, email: "", password: "" })
+
+               if (data.isAdmin) {
+                    // Handle admin login logic here
+                    console.log("Admin logged in!");
+                    // You can redirect to the admin dashboard or perform other admin-related actions
+                }
+
+                setData({ ...logdata, email: "", password: "" });
+
                 toast.success("Login Successfully done 😃!", {
                     position: "top-center"
                 });
             }
+        
         } catch (error) {
             console.log("login page ka error" + error.message);
         }

@@ -1,8 +1,9 @@
+import './product.css';
 export const products = [
     { 
         id: 'product1',
-        url: 'https://rukminim1.flixcart.com/image/150/150/kapoo7k0/electric-kettle/p/6/s/pigeon-favourite-original-imafs7xhj5uwgrh4.jpeg?q=70', 
-        detailUrl: 'https://rukminim1.flixcart.com/image/416/416/kapoo7k0/electric-kettle/p/6/s/pigeon-favourite-original-imafs7xhj5uwgrh4.jpeg?q=70',
+        url: 'book.jpg', 
+        detailUrl: 'book.jpg',
         title: {
             shortTitle: 'Home & Kitchen',
             longTitle: 'Pigeon FAVOURITE Electric Kettle  (1.5 L, Silver, Black)'

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const Right = ({ iteam }) => {
     const [val, setVal] = useState(false);
 
-    const history = useNavigate("");
+    // Use useNavigate to get the navigate function
+    const navigate = useNavigate();
 
     // Use state to keep track of subtotal
     const [subtotal, setSubtotal] = useState(0);
@@ -28,8 +29,8 @@ const Right = ({ iteam }) => {
 
     const proceesby = () => {
         alert("Your Order is Confirmed");
-        history.push("/");
-    }
+        navigate("/payment-process"); // Use navigate instead of history.push
+    };
 
     return (
         <div className="right_buy">
@@ -49,7 +50,7 @@ const Right = ({ iteam }) => {
                     Jewelry, Gift cards, and Amazon pay balance top-up). Learn more</span>
             </div>
         </div>
-    )
+    );
 }
 
 export default Right;
