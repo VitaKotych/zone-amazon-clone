@@ -192,6 +192,8 @@ const Navbaar = () => {
                         </NavLink>
                     }
 
+                    
+
                     {
                         account ?
                             <Avatar className="avtar2"
