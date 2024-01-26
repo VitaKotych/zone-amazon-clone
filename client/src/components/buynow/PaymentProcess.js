@@ -88,102 +88,111 @@ const PaymentProcess = () => {
 
   return (
     <div className="payment-container">
-      <h2 className="payment-title">Payment Process Page</h2>
-      <form className="payment-form" onSubmit={handlePaymentSubmit}>
-        <div className="payment-method">
-          <h3>Select Payment Method:</h3>
-          <div className="payment-radio">
-            <input
-              type="radio"
-              id="credit-card"
-              value="credit-card"
-              checked={paymentMethod === 'credit-card'}
-              onChange={() => handlePaymentMethodChange('credit-card')}
-            />
-            <label htmlFor="credit-card">Credit Card</label>
-          </div>
-          {/* Add more payment methods as needed */}
+  <h2 className="payment-title">Payment Process Page</h2>
+  <form className="payment-form" onSubmit={handlePaymentSubmit}>
+    <div className="payment-method">
+      <h3>Select Payment Method:</h3>
+      <div className="payment-options">
+        <div className="payment-option">
+          <input
+            type="radio"
+            id="credit-card"
+            value="credit-card"
+            checked={paymentMethod === 'credit-card'}
+            onChange={() => handlePaymentMethodChange('credit-card')}
+          />
+          <label htmlFor="credit-card">Credit Card</label>
         </div>
-
-        {paymentMethod === 'credit-card' && (
-          <div className="card-details">
-            <h3>Enter Card Details:</h3>
-            <div className="form-group">
-              <label htmlFor="cardNumber">Card Number:</label>
-              <input
-                type="text"
-                id="cardNumber"
-                value={cardNumber}
-                onChange={handleCardNumberChange}
-                placeholder="1234 5678 9012 3456"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="expiryDate">Expiry Date:</label>
-              <input
-                type="text"
-                id="expiryDate"
-                value={expiryDate}
-                onChange={handleExpiryDateChange}
-                placeholder="MM/YY"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="cvv">CVV:</label>
-              <input
-                type="text"
-                id="cvv"
-                value={cvv}
-                onChange={handleCvvChange}
-                placeholder="123"
-              />
-            </div>
-          </div>
-        )}
-
-        <div className="delivery-details">
-          <h3>Delivery Details:</h3>
-          <div className="form-group">
-          </div>
-          <div className="form-group">
-            <label htmlFor="city">City:</label>
-            <input
-              type="text"
-              id="city"
-              value={city}
-              onChange={handleCityChange}
-              placeholder="Enter your city"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="address">Address:</label>
-            <input
-              type="text"
-              id="address"
-              value={address}
-              onChange={handleAddressChange}
-              placeholder="Enter your address"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="phone">Phone:</label>
-            <input
-              type="text"
-              id="phone"
-              value={phone}
-              onChange={handlePhoneChange}
-              placeholder="Enter your phone number"
-            />
-          </div>
+        <div className="payment-option payment-upon-receipt-option">
+          <input
+            type="radio"
+            id="payment-upon-receipt"
+            value="payment-upon-receipt"
+            checked={paymentMethod === 'payment-upon-receipt'}
+            onChange={() => handlePaymentMethodChange('payment-upon-receipt')}
+          />
+          <label htmlFor="payment-upon-receipt">Payment Upon Receipt</label>
         </div>
-
-        {error && <p className="error-message">{error}</p>}
-
-        <button type="submit" className="payment-button" disabled={processing}>
-          {processing ? 'Processing...' : 'Submit Payment'}
-        </button>
-      </form>
+      </div>
     </div>
+
+    {paymentMethod === 'credit-card' && (
+      <div className="card-details">
+        <h3>Enter Card Details:</h3>
+        <div className="form-group">
+          <label htmlFor="cardNumber">Card Number:</label>
+          <input
+            type="text"
+            id="cardNumber"
+            value={cardNumber}
+            onChange={handleCardNumberChange}
+            placeholder="1234 5678 9012 3456"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="expiryDate">Expiry Date:</label>
+          <input
+            type="text"
+            id="expiryDate"
+            value={expiryDate}
+            onChange={handleExpiryDateChange}
+            placeholder="MM/YY"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="cvv">CVV:</label>
+          <input
+            type="text"
+            id="cvv"
+            value={cvv}
+            onChange={handleCvvChange}
+            placeholder="123"
+          />
+        </div>
+      </div>
+    )}
+
+    <div className="delivery-details">
+      <h3>Delivery Details:</h3>
+      <div className="form-group">
+        <label htmlFor="city">City:</label>
+        <input
+          type="text"
+          id="city"
+          value={city}
+          onChange={handleCityChange}
+          placeholder="Enter your city"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="address">Address:</label>
+        <input
+          type="text"
+          id="address"
+          value={address}
+          onChange={handleAddressChange}
+          placeholder="Enter your address"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="phone">Phone:</label>
+        <input
+          type="text"
+          id="phone"
+          value={phone}
+          onChange={handlePhoneChange}
+          placeholder="Enter your phone number"
+        />
+      </div>
+    </div>
+
+    {error && <p className="error-message">{error}</p>}
+
+    <button type="submit" className="payment-button" disabled={processing}>
+      {processing ? 'Processing...' : 'Submit Payment'}
+    </button>
+  </form>
+</div>
   );
 };
 

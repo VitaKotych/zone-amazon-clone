@@ -12,7 +12,6 @@ import { useEffect, useState } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Routes, Route } from "react-router-dom";
 import Admin from "./components/admin/AdminPanel.js";
-
 import AddProducts from "./components/admin/AddProduct.js";
 
 

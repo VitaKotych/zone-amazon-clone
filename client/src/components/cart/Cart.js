@@ -74,7 +74,6 @@ const Cart = () => {
   
 
     return (
-
         <div className="cart_section">
             {inddata && Object.keys(inddata).length &&
                 <div className="cart_container">
@@ -82,7 +81,7 @@ const Cart = () => {
                         <img src={inddata.detailUrl} alt="cart" />
                         <div className="cart_btn">
                             <button className="cart_btn1" onClick={() => addtocart(inddata.id)}>Add to Cart</button>
-                            <button className="cart_btn2">Buy Now</button>
+                            <button className="cart_btn2" onClick={() => navigate("/payment-process")}>Buy Now</button>
                         </div>
 
                     </div>

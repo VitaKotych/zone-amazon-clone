@@ -85,4 +85,27 @@
     background-color: #a0a0a0;
     cursor: not-allowed;
   }
+
+  .payment-method {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .payment-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .payment-option {
+    margin-right: 20px;
+  }
+  
+  .payment-upon-receipt-option {
+    margin-left: auto;
+  }
+
+  .payment-option {
+  margin-bottom: 10px; /* Adjust the spacing between the radio buttons */
+}
   
