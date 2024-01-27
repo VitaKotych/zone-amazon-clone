@@ -107,5 +107,13 @@
 
   .payment-option {
   margin-bottom: 10px; /* Adjust the spacing between the radio buttons */
-}
+  }
+  .error-label {
+    font-size: 12px; /* Adjust the font size as needed */
+    color: red; /* Set the color to red */
+  }
+  
+  .small {
+    font-size: 12px; /* You can adjust the font size as needed */
+  }
   
