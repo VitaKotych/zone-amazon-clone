@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import './PaymentProcess.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router';
 
 const PaymentProcess = () => {
+  const navigate = useNavigate();
   const [paymentMethod, setPaymentMethod] = useState('credit-card');
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
@@ -75,7 +79,11 @@ const PaymentProcess = () => {
     setProcessing(true);
     setTimeout(() => {
       setProcessing(false);
-      alert('Payment successful!');
+      toast.success("Delivery is processed! 🚚", {
+        position: "top-center"
+      });
+      navigate("/", { replace: true });
+      window.scrollTo(0, 0);
     }, 2000);
   };
 
