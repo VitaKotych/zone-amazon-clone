@@ -26,7 +26,7 @@ const PaymentProcess = () => {
 
   const validateCardDetails = () => {
     const errors = {};
-
+  
     if (!luhnCheck(cardNumber)) {
       errors.cardNumber = 'Invalid card number.';
     }
@@ -36,14 +36,13 @@ const PaymentProcess = () => {
     if (!validateCVV(cvv)) {
       errors.cvv = 'Invalid CVV.';
     }
-
-    setErrors(errors);
-    return Object.keys(errors).length === 0;
+  
+    return errors;
   };
-
+  
   const validateDeliveryDetails = () => {
     const errors = {};
-
+  
     if (!city) {
       errors.city = 'Please fill in the city.';
     }
@@ -53,25 +52,36 @@ const PaymentProcess = () => {
     if (!isValidUkrainePhoneNumber(phone)) {
       errors.phone = 'Please fill in the phone number.';
     }
-
-    setErrors(errors);
-    return Object.keys(errors).length === 0;
+  
+    return errors;
   };
-
-  function isValidUkrainePhoneNumber(phoneNumber) {
-    const ukrainePhonePattern = /^\+380\d{9}$/;
-    return ukrainePhonePattern.test(phoneNumber);
-  }
-
+  
   const handlePaymentSubmit = (e) => {
     e.preventDefault();
-
+    const deliveryErrors = validateDeliveryDetails();
+  
+    const isValidDelivery = Object.keys(deliveryErrors).length === 0;
+  
+  
     if (paymentMethod === 'credit-card') {
-      if (!validateCardDetails() || !validateDeliveryDetails()) {
+      const cardErrors = validateCardDetails();
+      const isValidCard = Object.keys(cardErrors).length === 0;
+
+      setErrors({
+        ...cardErrors,
+        ...deliveryErrors
+      });    
+
+      if (!isValidCard || !isValidDelivery) {
         return;
       }
     } else if (paymentMethod === 'payment-upon-receipt') {
-      if (!validateDeliveryDetails()) {
+      
+      setErrors({
+        ...deliveryErrors
+      });
+        
+      if (!isValidDelivery) {
         return;
       }
     }
@@ -114,7 +124,7 @@ const PaymentProcess = () => {
     }
     return sum % 10 === 0;
   }
-
+  
   function validateCVV(cvv) {
     return /^\d{3,4}$/.test(cvv);
   }
@@ -128,6 +138,11 @@ const PaymentProcess = () => {
     const currentYear = new Date().getFullYear() % 100;
     const currentMonth = new Date().getMonth() + 1;
     return +year > currentYear || (+year === currentYear && +month >= currentMonth);
+  }
+
+  function isValidUkrainePhoneNumber(phoneNumber) {
+    const ukrainePhonePattern = /^\+380\d{9}$/;
+    return ukrainePhonePattern.test(phoneNumber);
   }
 
   return (
